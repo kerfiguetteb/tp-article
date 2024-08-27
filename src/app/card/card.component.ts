@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
 
   @Input() item:any
+  
 
   deleteTask(value: any){
     value.visible = false
