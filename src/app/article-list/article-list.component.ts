@@ -19,7 +19,6 @@ export class ArticleListComponent {
   count:number = 1;
 
   increment(event: number){
-
     this.count = event + 1
   }
 }
