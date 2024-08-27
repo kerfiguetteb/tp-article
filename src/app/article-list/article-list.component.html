@@ -1,4 +1,11 @@
 
-@for (item of articles; track $index) {
-    <app-article-item [article]="item"></app-article-item>
-}
+<div class="border-component mt-5">
+    <div class="m-3">
+        <h2 class="">composant parent</h2>
+        <p>article-list.component</p>
+        <p> la valeur count du parent:  <strong>{{count}}</strong></p>
+    </div>
+    @for (item of articles; track $index) {
+        <app-article-item [article]="item" [count]="count" (onIncrement)="increment($event)"></app-article-item>
+    }
+</div>

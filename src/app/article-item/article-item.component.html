@@ -1,9 +1,18 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{article.title}}</h5>
-      @if(hidden){
-          <p class="card-text">{{article.content}}</p>
-      }
-      <button (click)="toogle()" class="btn btn-primary">Afficher le detail</button>
+
+<div class="border-card">
+  <div class="m-3">
+    <h2 >composant enfant</h2>
+    <p>article-item.component</p>
+</div>
+
+  <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        @if(hidden){
+            <p class="card-text">{{article.content}}</p>
+        }
+        <button (click)="toogle()" class="btn btn-primary">Afficher le detail</button>
+        <button (click)="up()" class="btn btn-secondary mt-1">la valeur count de l'enfant: <strong>{{count}}</strong></button>
+      </div>
     </div>
-  </div>
+</div>

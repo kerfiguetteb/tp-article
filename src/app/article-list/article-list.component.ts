@@ -16,4 +16,10 @@ export class ArticleListComponent {
     { title: 'Directives in Angular', content: 'How to use directives...' }
   ];
 
+  count:number = 1;
+
+  increment(event: number){
+
+    this.count = event + 1
+  }
 }
