@@ -1,0 +1,21 @@
+<hr>
+<h2>Todo-List</h2>
+<div class="mb-3">
+    <form action="">
+    <label for="exampleFormControlInput1" class="form-label">nom de la liste</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="entrez liste"  [(ngModel)]="nomTaskForm" name="nomTaskForm">
+    </form>
+    <button (click)="ajouterTask()" class="btn btn-primary" >Ajouter</button>
+  </div>
+
+  @for (item of taches; track $index) {
+    @if (item.visible) {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{item.nom}}</h5>
+            </div>
+            <button (click)="deleteTask(item)" class="btn btn-danger" >Supprimer</button>
+          </div>
+    }
+  }
+  
