@@ -12,13 +12,13 @@ export class AddTaskComponent {
 
 // Input a faire
   @Input()
-  nomTaskFormEnfant!: string
+  task!: any
 
 // Output a faire
   @Output() onNomTaskFormEnfant: EventEmitter<string> = new EventEmitter()
 
   up(){
-    this.onNomTaskFormEnfant.emit(this.nomTaskFormEnfant)
+    this.onNomTaskFormEnfant.emit(this.task)
   }
 
 

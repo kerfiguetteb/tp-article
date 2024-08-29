@@ -12,7 +12,13 @@ import { AddTaskComponent } from "../add-task/add-task.component";
 })
 export class TodoListComponent {
 
-  nomTaskFormParent: string = ""
+  formContact: any = {
+    nom:"",
+    quantite:0,
+    termine:false,
+    visible:true
+  }
+
 
   taches : any[] = [
     { nom: "foo", termine: false, visible:true},
@@ -22,6 +28,6 @@ export class TodoListComponent {
 
 
 ajouterTask(event: string){
-  this.taches.push({nom: event, termine: false, visible:true})
+  this.taches.push(this.formContact)
 }
 }

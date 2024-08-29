@@ -1,6 +1,6 @@
 <hr>
 <h2>Todo-List</h2>
-<app-add-task [nomTaskFormEnfant]="nomTaskFormParent" (onNomTaskFormEnfant)="ajouterTask($event)"></app-add-task>
+<app-add-task [task]="formContact" (onNomTaskFormEnfant)="ajouterTask($event)"></app-add-task>
 
   @for (item of taches; track $index) {
     @if (item.visible) {

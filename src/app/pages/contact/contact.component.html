@@ -1,0 +1,40 @@
+<form>
+
+    <div class="row ">
+        <div class="input-group input-group-sm mb-3 col-md-4" >
+            <span class="input-group-text" id="inputGroup-sizing-sm">nom</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="formContact.nom" name="nom">
+        </div>
+        <div class="input-group input-group-sm mb-3 col-md-4">
+            <span class="input-group-text" id="inputGroup-sizing-sm">prenom</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="formContact.prenom" name="prenom" >
+        </div>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-sm">email</span>
+        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="formContact.email" name="email">
+    </div>
+    <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" [(ngModel)]="formContact.content" name="content"></textarea>
+        <label for="floatingTextarea2">Comments</label>
+      </div>
+
+      <button (click)="ajouterContact()" class="btn btn-primary">Ajouter</button>
+    
+    </form>
+
+    <div class="row d-flex justify-content-center">
+        @for (item of messageries; track $index) {
+    
+            <div class="card col-md-3  m-1">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nom}} - {{item.prenom}}</h5>
+                  <p class="card-text">{{item.content}}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+    
+        }@empty {
+            <p>pas de message</p>
+        }
+    </div>
