@@ -25,7 +25,6 @@ export class TodoListComponent implements OnInit {
     visible: true
   }
 
-
   ajouterTask(event: Tache) {
     this.tacheService.createTache(event).subscribe((data) => {
       this.taches.push(data)
@@ -38,15 +37,12 @@ export class TodoListComponent implements OnInit {
       value.visible = false
     })
 
-    
   }
-
 
 
   ngOnInit(): void {
     this.tacheService.getTaches().subscribe((data) => {
       this.taches = data
-
       console.log(this.taches);
 
     })

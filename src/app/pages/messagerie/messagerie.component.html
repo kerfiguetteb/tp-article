@@ -1,0 +1,16 @@
+<div class="row d-flex justify-content-center">
+    @for (item of messageries; track $index) {
+
+        <div class="card col-md-3  m-1">
+            <div class="card-body">
+              <h5 class="card-title">{{item.nom}} - {{item.prenom}}</h5>
+              <p class="card-text">{{item.content}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+    }@empty {
+        <p>pas de message</p>
+    }
+</div>
+
