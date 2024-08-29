@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../card/card.component';
 import { AddTaskComponent } from "../add-task/add-task.component";
+import Tache from '../models/tache.model';
+import { TacheService } from '../services/tache.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,24 +12,46 @@ import { AddTaskComponent } from "../add-task/add-task.component";
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
 
-  formContact: any = {
-    nom:"",
-    quantite:0,
-    termine:false,
-    visible:true
+  constructor(private tacheService: TacheService) { }
+
+
+  taches!: Tache[]
+
+  formTask: any = {
+    nom: "",
+    termine: false,
+    visible: true
   }
 
 
-  taches : any[] = [
-    { nom: "foo", termine: false, visible:true},
-    { nom: "bar", termine: false, visible:true},
-    { nom: "baz", termine: false, visible:true}, 
-]
+  ajouterTask(event: Tache) {
+    this.tacheService.createTache(event).subscribe((data) => {
+      this.taches.push(data)
+
+    })
+  }
+
+  deleteTask(value: Tache) {
+    this.tacheService.deleteTache(value.id).subscribe(() => {
+      value.visible = false
+    })
+
+    
+  }
 
 
-ajouterTask(event: string){
-  this.taches.push(this.formContact)
-}
+
+  ngOnInit(): void {
+    this.tacheService.getTaches().subscribe((data) => {
+      this.taches = data
+
+      console.log(this.taches);
+
+    })
+    console.log(this.taches);
+
+  }
+
 }

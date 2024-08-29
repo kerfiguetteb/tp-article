@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import Tache from '../models/tache.model';
 
 @Component({
   selector: 'app-card',
@@ -9,11 +10,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
 
-  @Input() item:any
+
+  @Input() item!:Tache
   
 
-  deleteTask(value: any){
-    value.visible = false
+  @Output() onItem:EventEmitter<Tache> = new EventEmitter()
+
+  deleteTask(value: Tache){
+    this.onItem.emit(value)
   }
   
 }

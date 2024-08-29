@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Tache from '../models/tache.model';
 
 @Component({
   selector: 'app-add-task',
@@ -15,10 +16,10 @@ export class AddTaskComponent {
   task!: any
 
 // Output a faire
-  @Output() onNomTaskFormEnfant: EventEmitter<string> = new EventEmitter()
+  @Output() onTaskFormEnfant: EventEmitter<Tache> = new EventEmitter()
 
   up(){
-    this.onNomTaskFormEnfant.emit(this.task)
+    this.onTaskFormEnfant.emit(this.task)
   }
 
 
