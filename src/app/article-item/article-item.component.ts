@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-article-item',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './article-item.component.html',
   styleUrl: './article-item.component.css'
 })
@@ -12,9 +13,6 @@ export class ArticleItemComponent {
   @Input()
   article:any
 
-  @Input() count!:number
-
-  @Output() onIncrement: EventEmitter<number> = new EventEmitter()
 
   hidden:boolean = false
 
@@ -22,8 +20,5 @@ export class ArticleItemComponent {
     this.hidden = !this.hidden
   }
 
-  up(){
-    this.onIncrement.emit(this.count)
-  }
 
 }

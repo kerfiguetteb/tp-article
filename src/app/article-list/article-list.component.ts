@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ArticleItemComponent } from '../article-item/article-item.component';
+import Article from '../models/article.model';
 
 @Component({
   selector: 'app-article-list',
@@ -10,15 +11,7 @@ import { ArticleItemComponent } from '../article-item/article-item.component';
 })
 export class ArticleListComponent {
 
-  articles: any[] = [
-    { title: 'Angular Basics', content: 'Introduction to Angular...' },
-    { title: 'Components and Templates', content: 'Understanding components...' },
-    { title: 'Directives in Angular', content: 'How to use directives...' }
-  ];
+@Input() articles!:Article[]
 
-  count:number = 1;
 
-  increment(event: number){
-    this.count = event + 1
-  }
 }

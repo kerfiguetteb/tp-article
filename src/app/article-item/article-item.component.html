@@ -8,11 +8,7 @@
   <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">{{article.title}}</h5>
-        @if(hidden){
-            <p class="card-text">{{article.content}}</p>
-        }
-        <button (click)="toogle()" class="btn btn-primary">Afficher le detail</button>
-        <button (click)="up()" class="btn btn-secondary mt-1">la valeur count de l'enfant: <strong>{{count}}</strong></button>
+        <button routerLink="{{article.id}}" class="btn btn-primary">Afficher le detail</button>
       </div>
     </div>
 </div>

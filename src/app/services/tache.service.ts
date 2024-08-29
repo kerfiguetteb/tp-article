@@ -17,9 +17,9 @@ export class TacheService {
    return this.http.get<Tache[]>(`${this.urlApi}/taches`) 
   }
 
-  getTache(tache :Tache): Observable<Tache>
+  getTache(id :number): Observable<Tache>
   {
-    return this.http.get<Tache>(`${this.urlApi}/taches/${tache.id}`) 
+    return this.http.get<Tache>(`${this.urlApi}/taches/${id}`) 
   }
 
   createTache(tache: Tache): Observable<Tache>

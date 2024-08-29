@@ -1,1 +1,45 @@
-<app-article-list></app-article-list>
+@if (message) {
+    <div class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+      </div>
+}
+
+  
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+        <div class="input-group input-group-sm" >
+            <span class="input-group-text" id="inputGroup-sizing-sm">titre</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" formControlName="title" >
+        </div>
+        @if (submitted && title.invalid) {
+            <div class="text-danger">
+                nom invalide 🤪
+              </div>              
+        }
+        @if (title.valid) {
+            <div class="text-success">
+                nom valide 😃
+              </div>              
+        }
+
+    <div class="form-floating">
+        <textarea class="form-control mt-3" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" formControlName="description"></textarea>
+        <label for="floatingTextarea2">description</label>
+        @if (submitted && description.invalid) {
+            <div class="text-danger">
+                description invalide 🤪
+              </div>              
+        }
+
+        @if (description.valid) {
+            <div class="text-success">
+                description valide 😃
+              </div>              
+        }
+
+      </div>
+
+      <button type="submit" class="btn btn-primary" >Ajouter</button>
+</form>
+
+
+<app-article-list [articles]="articles"></app-article-list>
